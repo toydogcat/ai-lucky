@@ -230,5 +230,99 @@ document.addEventListener('DOMContentLoaded', () => {
       gridSection.classList.remove('is-hidden-view');
     });
   }
+
+  // ==========================================
+  // 4. Interactive 3D Tarot Cards Game Logic
+  // ==========================================
+  function initTarotGames() {
+    const gameWrappers = document.querySelectorAll('.lucky-game-wrapper');
+
+    gameWrappers.forEach((wrapper) => {
+      const cards = wrapper.querySelectorAll('.flip-card');
+      const actionRow = wrapper.querySelector('.lucky-game-actions');
+      const resetBtn = wrapper.querySelector('.reset-game-btn');
+
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          // If already flipped, do nothing
+          if (card.classList.contains('is-flipped')) return;
+
+          // Flip this card
+          card.classList.add('is-flipped');
+
+          // Trigger Sparkle Spark Particles!
+          createSparkles(card);
+
+          // Add a slightly dimmed look to other cards so the flipped card stands out
+          cards.forEach((otherCard) => {
+            if (otherCard !== card) {
+              otherCard.style.opacity = '0.5';
+              otherCard.style.transform = 'scale(0.92)';
+              otherCard.style.pointerEvents = 'none';
+            }
+          });
+
+          // Show Reset Button
+          if (actionRow) {
+            actionRow.classList.remove('is-hidden-view');
+          }
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          cards.forEach((card) => {
+            card.classList.remove('is-flipped');
+            card.style.opacity = '1';
+            card.style.transform = '';
+            card.style.pointerEvents = 'auto';
+          });
+
+          if (actionRow) {
+            actionRow.classList.add('is-hidden-view');
+          }
+        });
+      }
+    });
+  }
+
+  // Particle Sparkle Emitter
+  function createSparkles(element) {
+    const rect = element.getBoundingClientRect();
+    const centerX = window.scrollX + rect.left + rect.width / 2;
+    const centerY = window.scrollY + rect.top + rect.height / 2;
+
+    const emojis = ['✨', '💖', '🌟', '🌸', '🐾', '🎈'];
+
+    for (let i = 0; i < 24; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'sparkle-particle';
+      particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+      // Random target angles and distance
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 80 + Math.random() * 120;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      const rot = -180 + Math.random() * 360;
+
+      particle.style.left = `${centerX}px`;
+      particle.style.top = `${centerY}px`;
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      particle.style.setProperty('--rot', `${rot}deg`);
+
+      document.body.appendChild(particle);
+
+      // Clean up after animation finishes
+      setTimeout(() => {
+        particle.remove();
+      }, 1200);
+    }
+  }
+
+  // Initialize Tarot games
+  initTarotGames();
 });
+
 

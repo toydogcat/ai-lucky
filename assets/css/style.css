@@ -678,3 +678,227 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ==========================================
+   13. Cozy Busuanzi Visitor Counter Styling
+   ========================================== */
+.cozy-busuanzi {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.cozy-busuanzi .meta-item {
+  background-color: #F3E9DD;
+  border: 2px solid var(--border-color);
+  font-weight: 700;
+  box-shadow: 0 2px 0px var(--border-color);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cozy-busuanzi .meta-item i {
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+/* ==========================================
+   14. Interactive 3D Tarot Cards Game Styles
+   ========================================== */
+.lucky-game-wrapper {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.lucky-game-prompt {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lucky-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  perspective: 1000px; /* Essential for 3D flip */
+  margin-bottom: 1.5rem;
+}
+
+.flip-card {
+  height: 270px;
+  cursor: pointer;
+  perspective: 1000px;
+  border-radius: 18px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d; /* Key for keeping front/back in 3D */
+  border-radius: 18px;
+}
+
+/* Flipped State */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Hide other side when rotated */
+  backface-visibility: hidden;
+  border-radius: 18px;
+  border: 3px solid var(--border-color);
+  box-shadow: 0 6px 0px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  transition: all 0.25s ease;
+}
+
+/* Front Side Card Styles */
+.flip-card-front {
+  background-color: #FFFDF9;
+}
+.flip-card-front:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 0px var(--shadow-color);
+}
+
+.card-orange { background-color: #FFF3E0; border-color: #FFA726; }
+.card-bunny  { background-color: #FCE4EC; border-color: #EC407A; }
+.card-black  { background-color: #ECEFF1; border-color: #37474F; }
+
+.mascot-avatar {
+  width: 85px;
+  height: 85px;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: mascotFloat 4s infinite ease-in-out;
+}
+.flip-card-front:hover .mascot-avatar {
+  animation: mascotFloatFast 1s infinite ease-in-out;
+}
+
+.mascot-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.2rem 0.8rem;
+  border-radius: 15px;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 2px 0px var(--border-color);
+}
+
+/* Back Side Card (Fortune Scroll) Styles */
+.flip-card-back {
+  background-color: #FFFDEB;
+  border-color: var(--border-color);
+  transform: rotateY(180deg); /* Render back upside down relative to front */
+  justify-content: flex-start;
+  overflow-y: auto;
+  text-align: left;
+  padding: 1.2rem 1rem;
+}
+
+.fortune-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.4rem;
+  width: fit-content;
+}
+
+.fortune-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-hover);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.fortune-content {
+  font-size: 0.82rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fortune-task {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px dashed rgba(78, 52, 46, 0.15);
+  padding-top: 0.4rem;
+  line-height: 1.3;
+}
+.fortune-task span {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Actions */
+.lucky-game-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.post-text-body {
+  margin-top: 2rem;
+  border-top: 2px dashed rgba(78, 52, 46, 0.1);
+  padding-top: 2rem;
+  text-align: left;
+}
+
+/* Flying sparkles / hearts */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  animation: flySparkle 1.2s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 1.5rem;
+}
+
+@keyframes flySparkle {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(var(--rot)); opacity: 0; }
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.03); }
+}
+@keyframes mascotFloatFast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px) scale(1.06); }
+}
+
+
+
