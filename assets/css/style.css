@@ -732,7 +732,7 @@ a:hover {
   flex-wrap: wrap;
   gap: 1.5rem;
   perspective: 1000px; /* Essential for 3D flip */
-  margin: 2rem 0;
+  margin: 1rem 0 1.5rem 0; /* Reduced top margin to remove extra whitespace */
   min-height: 290px;
 }
 
@@ -751,8 +751,11 @@ a:hover {
   opacity: 0 !important;
   transform: scale(0) translateY(50px) !important;
   width: 0 !important;
+  height: 0 !important; /* Collapse height to prevent ghost vertical spacing */
+  padding: 0 !important; /* Remove any padding during shrink */
   margin: 0 !important;
   pointer-events: none !important;
+  overflow: hidden; /* Hide any overflow elements during collapse */
 }
 
 /* Expanding selected card to be big and majestic! */
