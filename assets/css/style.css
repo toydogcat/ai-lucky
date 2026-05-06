@@ -982,5 +982,49 @@ a:hover {
   50% { transform: translateY(-8px) scale(1.06); }
 }
 
+/* ==========================================
+   15. Mobile Responsive Optimization for Expanded Cards
+   ========================================== */
+@media (max-width: 600px) {
+  /* Prevent text overflow and overlap on mobile by letting the expanded card grow naturally */
+  .flip-card.is-expanded {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important; /* Allow natural height expansion */
+    min-height: 380px !important;
+  }
+  
+  .flip-card.is-expanded .flip-card-inner {
+    height: auto !important;
+    transform: none !important; /* Disable 3D flip transform on mobile once expanded for stable relative flow */
+  }
+  
+  .flip-card.is-expanded .flip-card-front {
+    display: none !important; /* Hide front side once card is flipped and expanded */
+  }
+  
+  .flip-card.is-expanded.is-flipped .flip-card-back {
+    position: relative !important;
+    transform: none !important; /* Display flatly for natural text flow on narrow screens */
+    width: 100% !important;
+    height: auto !important;
+    padding: 1.6rem 1.4rem;
+    box-sizing: border-box;
+  }
 
-
+  .is-expanded .fortune-content {
+    font-size: 0.88rem !important; /* Slightly smaller on tiny screens */
+    line-height: 1.55 !important;
+    margin-bottom: 0.8rem !important;
+    overflow-y: visible !important; /* Natural text flow */
+  }
+  
+  .is-expanded .fortune-title {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  
+  .is-expanded .fortune-task {
+    font-size: 0.82rem !important;
+  }
+}
