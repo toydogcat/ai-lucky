@@ -319,6 +319,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ==========================================
+  // 6. Weekly Background Music System (Taiwan Time UTC+8)
+  // ==========================================
+  function initWeeklyMusic() {
+    const audioEl = document.getElementById('cozy-bg-audio');
+    const toggleBtn = document.getElementById('music-toggle-btn');
+    const discEl = document.getElementById('music-disc');
+    const tooltipEl = document.getElementById('music-tooltip');
+
+    if (!audioEl || !toggleBtn || !discEl) return;
+
+    const musicMapping = {
+      'Monday': '/ai-lucky/music/Mon_My_Other_Half.mp3',
+      'Tuesday': '/ai-lucky/music/Tuesday_is_the_Bridge.mp3',
+      'Wednesday': '/ai-lucky/music/Wed_Afternoon_Treetops.mp3',
+      'Thursday': '/ai-lucky/music/The_View_From_Thursday.mp3',
+      'Friday': '/ai-lucky/music/Fri_Velvet_of_the_Evening.mp3',
+      'Saturday': '/ai-lucky/music/Sat_The_Softest_Shade_Of_Stay.mp3',
+      'Sunday': '/ai-lucky/music/The_Patient_Sun.mp3'
+    };
+
+    // Determine current day of week in Taiwan Time (UTC+8)
+    const options = { timeZone: 'Asia/Taipei', weekday: 'long' };
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+    const taiwanDay = formatter.format(new Date()); // e.g. "Monday"
+
+    const selectedTrack = musicMapping[taiwanDay] || musicMapping['Monday'];
+    audioEl.src = selectedTrack;
+
+    // Set cute tooltip text based on day of week
+    const cuteDayNames = {
+      'Monday': '星期一的療癒之音 🥐',
+      'Tuesday': '星期二的溫柔暖風 ☕',
+      'Wednesday': '星期三的午後樹梢 🍃',
+      'Thursday': '星期四的雲朵漫步 ☁️',
+      'Friday': '星期五的慵懶傍晚 🌙',
+      'Saturday': '星期六的星空微甜 ✨',
+      'Sunday': '星期日的陽光擁抱 ☀️'
+    };
+    const dayLabel = cuteDayNames[taiwanDay] || '今日的療癒之音 🎵';
+    if (tooltipEl) {
+      tooltipEl.textContent = `點點我播放 ${dayLabel}`;
+    }
+
+    // Toggle Play/Pause on click
+    toggleBtn.addEventListener('click', () => {
+      if (audioEl.paused) {
+        audioEl.play().then(() => {
+          discEl.classList.add('is-playing');
+          if (tooltipEl) tooltipEl.textContent = `播放中: ${dayLabel}`;
+        }).catch(err => {
+          console.warn('Audio playback blocked by browser policies:', err);
+        });
+      } else {
+        audioEl.pause();
+        discEl.classList.remove('is-playing');
+        if (tooltipEl) tooltipEl.textContent = `已暫停 點點我播放 🎵`;
+      }
+    });
+  }
+
+  // Initialize Music
+  initWeeklyMusic();
+
   // Initialize Tarot games
   initTarotGames();
 });

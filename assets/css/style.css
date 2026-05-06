@@ -1028,3 +1028,116 @@ a:hover {
     font-size: 0.82rem !important;
   }
 }
+
+/* ==========================================
+   16. Floating Cozy Music Player (Vinyl Disc)
+   ========================================== */
+.cozy-music-player {
+  position: fixed;
+  top: 24px;
+  left: 24px; /* Placed on top-left to avoid overlapping with right-hand cat mascot! */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .cozy-music-player {
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.music-disc-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.music-disc-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Vinyl Disc design */
+.music-disc {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 30%, #111 70%, #000 100%);
+  border: 3px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+/* Vinyl grooves */
+.music-disc::before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.music-disc-center {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--primary); /* Cozy yellow-orange center */
+  border: 2px solid var(--border-color);
+}
+
+.music-note-icon {
+  position: absolute;
+  font-size: 0.9rem;
+  color: #fff;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Spinning animation */
+.music-disc.is-playing {
+  animation: spinVinyl 6s linear infinite;
+}
+
+@keyframes spinVinyl {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip */
+.music-tooltip {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: 0 3px 0 var(--shadow-color);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.cozy-music-player:hover .music-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
