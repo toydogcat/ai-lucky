@@ -726,18 +726,40 @@ a:hover {
 }
 
 .lucky-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
   perspective: 1000px; /* Essential for 3D flip */
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
+  min-height: 290px;
 }
 
 .flip-card {
-  height: 270px;
+  width: 200px;
+  height: 275px;
   cursor: pointer;
   perspective: 1000px;
   border-radius: 18px;
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+/* Kicking out other cards */
+.flip-card.is-dismissed {
+  opacity: 0 !important;
+  transform: scale(0) translateY(50px) !important;
+  width: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Expanding selected card to be big and majestic! */
+.flip-card.is-expanded {
+  width: 100% !important;
+  max-width: 480px !important;
+  height: 310px !important;
 }
 
 .flip-card-inner {
@@ -769,25 +791,48 @@ a:hover {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
-/* Front Side Card Styles */
+/* Front Side Card Styles - Super Cute, Rounded, and Premium */
 .flip-card-front {
-  background-color: #FFFDF9;
+  background: radial-gradient(circle, #FFFDF6 0%, #FFF5E6 100%);
+  border: 3.5px solid var(--border-color);
+  position: relative;
 }
-.flip-card-front:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 0px var(--shadow-color);
+.flip-card-front::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed rgba(78, 52, 46, 0.16);
+  border-radius: 12px;
+  pointer-events: none;
+}
+/* Cute little pin decoration on top */
+.flip-card-front::before {
+  content: '📌';
+  position: absolute;
+  top: -12px;
+  font-size: 1.4rem;
+  z-index: 5;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
 }
 
-.card-orange { background-color: #FFF3E0; border-color: #FFA726; }
-.card-bunny  { background-color: #FCE4EC; border-color: #EC407A; }
-.card-black  { background-color: #ECEFF1; border-color: #37474F; }
+.flip-card-front:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 12px 0px var(--shadow-color);
+}
+
+.card-orange { background: radial-gradient(circle, #FFFDF6 0%, #FFF3E0 100%); border-color: #FFA726; }
+.card-bunny  { background: radial-gradient(circle, #FFFDF6 0%, #FCE4EC 100%); border-color: #EC407A; }
+.card-black  { background: radial-gradient(circle, #FFFDF6 0%, #ECEFF1 100%); border-color: #37474F; }
 
 .mascot-avatar {
-  width: 85px;
-  height: 85px;
+  width: 95px;
+  height: 95px;
   margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
@@ -795,68 +840,83 @@ a:hover {
   animation: mascotFloat 4s infinite ease-in-out;
 }
 .flip-card-front:hover .mascot-avatar {
-  animation: mascotFloatFast 1s infinite ease-in-out;
+  animation: mascotFloatFast 0.8s infinite ease-in-out;
 }
 
 .mascot-name {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-main);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 0.2rem 0.8rem;
-  border-radius: 15px;
+  background-color: #FFFDF9;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  border: 2.5px solid var(--border-color);
+  box-shadow: 0 3px 0px var(--border-color);
+  z-index: 2;
+}
+
+/* Back Side Card (Fortune Scroll) Styles - Beautiful and Expanded */
+.flip-card-back {
+  background-color: #FFFDEB;
+  background-image: radial-gradient(rgba(78, 52, 46, 0.03) 1.5px, transparent 1.5px);
+  background-size: 15px 15px; /* cute dot paper background */
+  border-color: var(--border-color);
+  transform: rotateY(180deg); /* Render back upside down relative to front */
+  justify-content: center;
+  text-align: left;
+  padding: 1.5rem;
+}
+
+/* Make back content layout adjust beautifully when expanded */
+.is-expanded .flip-card-back {
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fortune-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  margin-bottom: 0.6rem;
+  width: fit-content;
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 0px var(--border-color);
 }
 
-/* Back Side Card (Fortune Scroll) Styles */
-.flip-card-back {
-  background-color: #FFFDEB;
-  border-color: var(--border-color);
-  transform: rotateY(180deg); /* Render back upside down relative to front */
-  justify-content: flex-start;
-  overflow-y: auto;
-  text-align: left;
-  padding: 1.2rem 1rem;
-}
-
-.fortune-badge {
-  font-size: 0.8rem;
-  font-weight: 700;
-  background-color: var(--primary);
-  color: white;
-  padding: 0.1rem 0.5rem;
-  border-radius: 12px;
-  margin-bottom: 0.4rem;
-  width: fit-content;
-}
-
 .fortune-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--primary-hover);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   line-height: 1.3;
 }
 
 .fortune-content {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-main);
-  line-height: 1.4;
-  margin-bottom: 0.6rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  overflow-y: auto;
+}
+
+/* Let the text occupy full clamp on normal, but scroll freely on expanded */
+.is-expanded .fortune-content {
+  display: block;
 }
 
 .fortune-task {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  border-top: 1px dashed rgba(78, 52, 46, 0.15);
-  padding-top: 0.4rem;
-  line-height: 1.3;
+  border-top: 2px dashed rgba(78, 52, 46, 0.15);
+  padding-top: 0.6rem;
+  line-height: 1.4;
 }
+
 .fortune-task span {
   font-weight: 700;
   color: var(--primary);

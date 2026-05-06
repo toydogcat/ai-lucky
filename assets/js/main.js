@@ -247,18 +247,17 @@ document.addEventListener('DOMContentLoaded', () => {
           // If already flipped, do nothing
           if (card.classList.contains('is-flipped')) return;
 
-          // Flip this card
+          // Flip and Expand this card
           card.classList.add('is-flipped');
+          card.classList.add('is-expanded');
 
           // Trigger Sparkle Spark Particles!
           createSparkles(card);
 
-          // Add a slightly dimmed look to other cards so the flipped card stands out
+          // Kick out other cards (dismiss them)
           cards.forEach((otherCard) => {
             if (otherCard !== card) {
-              otherCard.style.opacity = '0.5';
-              otherCard.style.transform = 'scale(0.92)';
-              otherCard.style.pointerEvents = 'none';
+              otherCard.classList.add('is-dismissed');
             }
           });
 
@@ -273,9 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resetBtn.addEventListener('click', () => {
           cards.forEach((card) => {
             card.classList.remove('is-flipped');
-            card.style.opacity = '1';
-            card.style.transform = '';
-            card.style.pointerEvents = 'auto';
+            card.classList.remove('is-expanded');
+            card.classList.remove('is-dismissed');
           });
 
           if (actionRow) {
