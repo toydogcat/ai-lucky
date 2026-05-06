@@ -748,6 +748,7 @@ a:hover {
 
 /* Kicking out other cards */
 .flip-card.is-dismissed {
+  position: absolute !important; /* Take out of flex flow to prevent row wrapping and ghost rows! */
   opacity: 0 !important;
   transform: scale(0) translateY(50px) !important;
   width: 0 !important;
