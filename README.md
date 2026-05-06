@@ -1,2 +1,2 @@
 # ai-lucky
-The lucky.
+The [lucky](https://toydogcat.github.io/ai-lucky/).
