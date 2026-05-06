@@ -1,0 +1,56 @@
+const CACHE_NAME = 'cozy-lucky-cache-v1.1';
+const ASSETS_TO_CACHE = [
+  '/ai-lucky/',
+  '/ai-lucky/index.html',
+  '/ai-lucky/assets/css/style.css',
+  '/ai-lucky/assets/js/main.js',
+  '/ai-lucky/manifest.json',
+  '/ai-lucky/assets/img/icon-192.png',
+  '/ai-lucky/assets/img/icon-512.png',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+  'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap'
+];
+
+// Install Service Worker and cache all vital assets
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS_TO_CACHE).catch(err => {
+        console.warn('Pre-caching assets failed, some assets might be offline-only:', err);
+      });
+    })
+  );
+});
+
+// Activate Service Worker and clear stale caches
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+});
+
+// Cache-First with Network-Fallback strategy
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(e.request).then((response) => {
+        // Return response from network
+        return response;
+      }).catch(() => {
+        // Offline fallback if network is unreachable
+        return caches.match('/ai-lucky/');
+      });
+    })
+  );
+});

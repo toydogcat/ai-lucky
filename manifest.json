@@ -1,0 +1,28 @@
+{
+  "name": "幸運日記 ✨",
+  "short_name": "幸運日記",
+  "description": "暖心可愛的手寫風格日記，紀錄生活中的小確幸 🐾",
+  "start_url": "/ai-lucky/",
+  "display": "standalone",
+  "background_color": "#FFFDF6",
+  "theme_color": "#FFA726",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/ai-lucky/assets/img/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/ai-lucky/assets/img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/ai-lucky/assets/img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

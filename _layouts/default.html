@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% seo %}
   
+  <!-- PWA Manifest & iOS Standalone Support -->
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="幸運日記">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/icon-512.png' | relative_url }}">
+  
   <!-- Google Fonts for Cute Rounded Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,5 +100,16 @@
 
   <!-- Custom Cozy Scripts -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  <!-- Register Service Worker for PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
+          .then(reg => console.log('Service Worker registered successfully!', reg))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>
