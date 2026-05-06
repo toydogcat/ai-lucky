@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="diary-single-container">
+  <!-- Cute Back Button -->
+  <div class="back-navigation">
+    <a href="{{ '/' | relative_url }}" class="cozy-btn back-btn">
+      <i class="fa-solid fa-book-open"></i> 回到日記本 🐾
+    </a>
+  </div>
+
+  <!-- The Post Diary Card -->
+  <article class="diary-card single-post-card">
+    <div class="card-decorations">
+      <div class="tape tape-left"></div>
+      <div class="tape tape-right"></div>
+    </div>
+    
+    <header class="card-header">
+      <div class="card-meta">
+        <span class="meta-item date"><i class="fa-regular fa-calendar-days"></i> {{ page.date | date: "%Y年%m月%d日" }}</span>
+        {% if page.mood %}
+        <span class="meta-item mood"><i class="fa-regular fa-face-smile"></i> 心情：{{ page.mood }}</span>
+        {% endif %}
+        {% if page.weather %}
+        <span class="meta-item weather"><i class="fa-solid fa-cloud-sun"></i> 天氣：{{ page.weather }}</span>
+        {% endif %}
+      </div>
+      <h1 class="card-title">{{ page.title }}</h1>
+    </header>
+
+    <div class="card-divider">
+      <span class="divider-paw"><i class="fa-solid fa-paw"></i></span>
+    </div>
+
+    <div class="card-content markdown-body">
+      {{ content }}
+    </div>
+
+    <footer class="card-footer">
+      <div class="heart-stamp">🌸 幸運滿滿 🌸</div>
+    </footer>
+  </article>
+</div>

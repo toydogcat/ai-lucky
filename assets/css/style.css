@@ -1,0 +1,528 @@
+/* 
+ * Cozy & Warm Hand-Drawn Diary Style System (CozyPaw)
+ * Built with care for a premium, cute aesthetic.
+ */
+
+/* ==========================================
+   1. Design System & Variables
+   ========================================== */
+:root {
+  --bg-color: #FAF5ED;          /* Warm cream milk tea background */
+  --text-main: #4E342E;         /* Warm cocoa brown for main text */
+  --text-muted: #8D6E63;        /* Soft brown for details */
+  --primary: #FF8A65;           /* Pastel peach coral */
+  --primary-hover: #FF7043;
+  --secondary: #FFD54F;         /* Sweet honey yellow */
+  --soft-green: #A5D6A7;        /* Soft mint green */
+  --card-bg: #FFFFFF;           /* Crisp notebook paper white */
+  --border-color: #5D4037;      /* Warm chocolate brown border */
+  --shadow-color: rgba(78, 52, 46, 0.08);
+  --shadow-deep: rgba(78, 52, 46, 0.15);
+  
+  --font-cute: 'Quicksand', 'Noto Sans TC', system-ui, sans-serif;
+}
+
+/* ==========================================
+   2. Reset & Global Styles
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-cute);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* ==========================================
+   3. Cute Background Decorations & Keyframes
+   ========================================== */
+.cozy-bg-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Clouds floating */
+.cloud {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 3rem;
+  animation: floatCloud 25s infinite linear;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.02));
+}
+.cloud-1 { top: 12%; left: -10%; animation-duration: 35s; font-size: 4rem; }
+.cloud-2 { top: 38%; left: -15%; animation-duration: 48s; font-size: 3rem; opacity: 0.6; }
+.cloud-3 { top: 72%; left: -8%; animation-duration: 40s; font-size: 3.5rem; }
+
+/* Stars Twinkling */
+.star {
+  position: absolute;
+  color: var(--secondary);
+  opacity: 0.7;
+  animation: twinkle 4s infinite ease-in-out;
+}
+.star-1 { top: 18%; right: 15%; font-size: 1.5rem; animation-delay: 0s; }
+.star-2 { top: 45%; left: 10%; font-size: 1.2rem; animation-delay: 1.5s; }
+.star-3 { top: 68%; right: 8%; font-size: 1.8rem; animation-delay: 3s; }
+
+/* Flowers floating/static */
+.flower {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.2;
+  color: var(--primary);
+}
+.flower-1 { top: 25%; left: 8%; }
+.flower-2 { top: 80%; right: 12%; color: var(--secondary); }
+
+@keyframes floatCloud {
+  0% { transform: translateX(-10vw); }
+  100% { transform: translateX(110vw); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* ==========================================
+   4. Header & Footer Layouts
+   ========================================== */
+.cozy-header {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.header-logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+.sparkle {
+  display: inline-block;
+  animation: bounce 2s infinite ease-in-out;
+}
+.sparkle:nth-child(2) { animation-delay: 1s; }
+
+.header-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cozy-container {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem 1.5rem;
+  z-index: 2;
+  position: relative;
+}
+
+.cozy-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ==========================================
+   5. Card Deck (one post at a time) Styles
+   ========================================== */
+.diary-deck-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.diary-deck {
+  position: relative;
+  min-height: 400px;
+}
+
+/* Beautiful Paper Card with Hand-drawn Style */
+.diary-card {
+  background-color: var(--card-bg);
+  border: 3px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 0px var(--shadow-color);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Tapes at corners for hand-made scrapbook feel */
+.card-decorations .tape {
+  position: absolute;
+  width: 90px;
+  height: 30px;
+  background-color: rgba(255, 213, 79, 0.6); /* Translucent Yellow tape */
+  backdrop-filter: blur(1px);
+  transform: rotate(-15deg);
+  top: -12px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+.card-decorations .tape-left {
+  left: 20px;
+  transform: rotate(-12deg);
+  background-color: rgba(255, 213, 79, 0.5);
+}
+.card-decorations .tape-right {
+  right: 20px;
+  transform: rotate(12deg);
+  background-color: rgba(255, 171, 145, 0.5); /* Soft Peach tape */
+}
+
+/* Active card state (shown) */
+.diary-card.is-active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Inactive cards state (hidden with transitions) */
+.diary-card.is-hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+/* Meta & Title */
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #F5EBE0;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.meta-item i {
+  font-size: 0.85rem;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+/* Divider paw */
+.card-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+.card-divider::before, .card-divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: var(--border-color);
+  border-bottom: 1px dashed var(--bg-color);
+}
+.divider-paw {
+  padding: 0 1rem;
+  color: var(--primary);
+  font-size: 1.2rem;
+  animation: pawWiggle 3s infinite ease-in-out;
+}
+
+@keyframes pawWiggle {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(15deg); }
+}
+
+/* Markdown Content area */
+.card-content {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+.card-content p {
+  margin-bottom: 1.2rem;
+}
+.card-content blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.card-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.heart-stamp {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  border: 2px dashed var(--primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  transform: rotate(-3deg);
+}
+
+/* ==========================================
+   6. Cute Cloud & Paw Navigation
+   ========================================== */
+.diary-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.nav-paws-indicator {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #D7CCC8;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.indicator-dot.is-active {
+  background-color: var(--primary);
+  transform: scale(1.3);
+}
+
+.cozy-btn {
+  background-color: var(--card-bg);
+  border: 3px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-cute);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 0px var(--border-color);
+  transition: all 0.15s ease-in;
+}
+.cozy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px var(--border-color);
+  background-color: #FFFDF9;
+}
+.cozy-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0px var(--border-color);
+}
+.cozy-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 0px var(--border-color);
+}
+
+/* Cute Progress walking kitty */
+.cozy-progress-wrapper {
+  margin-top: 1rem;
+  background: #EFEBE9;
+  height: 6px;
+  border-radius: 10px;
+  position: relative;
+}
+.cozy-progress-bar {
+  background-color: var(--primary);
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.progress-walker {
+  position: absolute;
+  top: -15px;
+  left: 0%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  transition: left 0.4s ease;
+  pointer-events: none;
+}
+
+/* ==========================================
+   7. Single Post View Fallbacks
+   ========================================== */
+.back-navigation {
+  margin-bottom: 1.5rem;
+}
+.back-btn {
+  background-color: var(--soft-green);
+}
+.back-btn:hover {
+  background-color: #C8E6C9;
+}
+
+/* ==========================================
+   8. Cozy Mascot Widget (Sleeping Cat)
+   ========================================== */
+.mascot-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.speech-bubble {
+  background-color: var(--card-bg);
+  border: 3px solid var(--border-color);
+  padding: 0.6rem 1rem;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: 0 5px 0px var(--shadow-color);
+  max-width: 220px;
+  margin-bottom: 8px;
+  position: relative;
+  text-align: center;
+  transform-origin: bottom right;
+  animation: speechFloat 3s infinite ease-in-out;
+}
+/* Speech bubble pointer */
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  right: 30px;
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: var(--card-bg) transparent;
+  display: block;
+  width: 0;
+}
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  right: 28px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--border-color) transparent;
+  display: block;
+  width: 0;
+  z-index: -1;
+}
+
+.mascot-wrapper {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mascot-container:hover .mascot-wrapper {
+  transform: scale(1.1) translateY(-4px);
+}
+
+/* Tail wiggle animation */
+.tail-wiggle {
+  transform-origin: 80px 65px;
+  animation: wiggleTail 4s infinite ease-in-out;
+}
+
+@keyframes speechFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+}
+
+@keyframes wiggleTail {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+/* ==========================================
+   9. Responsive Design
+   ========================================== */
+@media (max-width: 600px) {
+  .cozy-header {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  .header-logo {
+    font-size: 2rem;
+  }
+  .cozy-container {
+    padding: 0.5rem 1rem 4rem 1rem;
+  }
+  .diary-card {
+    padding: 1.8rem 1.2rem;
+    border-radius: 20px;
+  }
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .cozy-btn {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.9rem;
+  }
+  .mascot-container {
+    bottom: 12px;
+    right: 12px;
+  }
+  .speech-bubble {
+    font-size: 0.8rem;
+    max-width: 170px;
+  }
+}

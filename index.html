@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<div class="diary-deck-wrapper">
+  <!-- The Book Card Deck -->
+  <div class="diary-deck">
+    {% for post in site.posts %}
+    <article class="diary-card {% if forloop.first %}is-active{% else %}is-hidden{% endif %}">
+      <!-- Tape decorations -->
+      <div class="card-decorations">
+        <div class="tape tape-left"></div>
+        <div class="tape tape-right"></div>
+      </div>
+      
+      <header class="card-header">
+        <div class="card-meta">
+          <span class="meta-item date"><i class="fa-regular fa-calendar-days"></i> {{ post.date | date: "%Y年%m月%d日" }}</span>
+          {% if post.mood %}
+          <span class="meta-item mood"><i class="fa-regular fa-face-smile"></i> 心情：{{ post.mood }}</span>
+          {% endif %}
+          {% if post.weather %}
+          <span class="meta-item weather"><i class="fa-solid fa-cloud-sun"></i> 天氣：{{ post.weather }}</span>
+          {% endif %}
+        </div>
+        <h2 class="card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+      </header>
+
+      <div class="card-divider">
+        <span class="divider-paw"><i class="fa-solid fa-paw"></i></span>
+      </div>
+
+      <div class="card-content markdown-body">
+        {{ post.content }}
+      </div>
+
+      <footer class="card-footer">
+        <div class="heart-stamp">🌸 幸運滿滿 🌸</div>
+      </footer>
+    </article>
+    {% else %}
+    <!-- Fallback if no posts exist yet -->
+    <article class="diary-card is-active">
+      <div class="card-decorations">
+        <div class="tape tape-left"></div>
+        <div class="tape tape-right"></div>
+      </div>
+      <header class="card-header">
+        <h2 class="card-title">開始寫你的第一篇日記吧！🐾</h2>
+      </header>
+      <div class="card-divider">
+        <span class="divider-paw"><i class="fa-solid fa-paw"></i></span>
+      </div>
+      <div class="card-content">
+        <p>歡迎來到你的專屬暖心日記本。目前還沒有日記文章，請在 <code>_posts/</code> 資料夾中建立 markdown 檔案，就可以開始記錄生活點滴囉！</p>
+        <p>例如建立一個名為 <code>_posts/2026-05-06-my-happy-day.md</code> 的檔案，並設定 <code>title</code>、<code>mood</code> 與 <code>weather</code>！</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Paw Navigation Buttons -->
+  {% if site.posts.size > 1 %}
+  <div class="diary-navigation">
+    <button id="cozy-prev-btn" class="cozy-btn" disabled>
+      <i class="fa-solid fa-chevron-left"></i> 上一篇 🐾
+    </button>
+    
+    <div id="cozy-nav-dots" class="nav-paws-indicator">
+      <!-- Dots generated dynamically via JS -->
+    </div>
+    
+    <button id="cozy-next-btn" class="cozy-btn">
+      下一篇 🐾 <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Walking Kitty Progress bar -->
+  <div class="cozy-progress-wrapper">
+    <div id="cozy-progress-bar" class="cozy-progress-bar"></div>
+    <div id="cozy-progress-walker" class="progress-walker">🐾</div>
+  </div>
+  {% endif %}
+</div>

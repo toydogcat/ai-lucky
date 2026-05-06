@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% seo %}
+  
+  <!-- Google Fonts for Cute Rounded Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Cute Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Cozy Style -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- Floating Cute Background elements -->
+  <div class="cozy-bg-decorations">
+    <div class="cloud cloud-1"><i class="fa-solid fa-cloud"></i></div>
+    <div class="cloud cloud-2"><i class="fa-solid fa-cloud"></i></div>
+    <div class="cloud cloud-3"><i class="fa-solid fa-cloud"></i></div>
+    <div class="star star-1"><i class="fa-solid fa-star"></i></div>
+    <div class="star star-2"><i class="fa-solid fa-star"></i></div>
+    <div class="star star-3"><i class="fa-solid fa-star"></i></div>
+    <div class="flower flower-1">✿</div>
+    <div class="flower flower-2">❀</div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="cozy-header">
+    <div class="header-logo">
+      <span class="sparkle">✨</span> {{ site.title }} <span class="sparkle">✨</span>
+    </div>
+    <p class="header-desc">{{ site.description }}</p>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="cozy-container">
+    {{ content }}
+  </main>
+
+  <!-- Interactive Mascot Widget (Lucky Kitty) -->
+  <div id="cozy-mascot-container" class="mascot-container">
+    <div class="speech-bubble" id="mascot-speech">哈囉！點點我可以獲得暖心祝福唷 🐾</div>
+    <div class="mascot-wrapper">
+      <svg class="cozy-cat" viewBox="0 0 100 100" width="80" height="80">
+        <!-- Cat Body (Cozy sleeping position) -->
+        <ellipse cx="50" cy="65" rx="35" ry="25" fill="#FFA726" />
+        <!-- Sleeping Stripes -->
+        <path d="M40 50 Q45 48 50 50" stroke="#E65100" stroke-width="2" fill="none" />
+        <path d="M55 52 Q60 50 65 52" stroke="#E65100" stroke-width="2" fill="none" />
+        <path d="M30 65 Q35 63 40 65" stroke="#E65100" stroke-width="2" fill="none" />
+        <!-- Head -->
+        <circle cx="35" cy="45" r="18" fill="#FFB74D" />
+        <!-- Ears -->
+        <polygon points="20,35 25,15 35,30" fill="#FFA726" />
+        <polygon points="23,32 26,18 32,28" fill="#FFCDD2" />
+        <polygon points="40,30 50,15 48,35" fill="#FFA726" />
+        <polygon points="42,28 48,18 46,32" fill="#FFCDD2" />
+        <!-- Sleeping Eyes -->
+        <path d="M22 45 Q26 49 30 45" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <path d="M36 45 Q40 49 44 45" stroke="#5D4037" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <!-- Little Nose and Mouth -->
+        <path d="M33 49 L33 51 M31 52 Q33 54 35 52" stroke="#5D4037" stroke-width="2" fill="none" stroke-linecap="round" />
+        <!-- Rosy Cheeks -->
+        <circle cx="21" cy="49" r="3" fill="#FF8A80" opacity="0.8" />
+        <circle cx="43" cy="49" r="3" fill="#FF8A80" opacity="0.8" />
+        <!-- Tail -->
+        <path id="cat-tail" class="tail-wiggle" d="M80 65 Q95 55 90 40" stroke="#FFB74D" stroke-width="8" fill="none" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="cozy-footer">
+    <p>© {{ "now" | date: "%Y" }} {{ site.title }} • Made with ❤️ and Warmth</p>
+  </footer>
+
+  <!-- Custom Cozy Scripts -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
