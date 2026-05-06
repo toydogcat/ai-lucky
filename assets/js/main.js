@@ -206,4 +206,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 15000);
   }
+
+  // ==========================================
+  // 3. Dual-Mode View Switcher (Deck vs Grid)
+  // ==========================================
+  const toggleDeckBtn = document.getElementById('toggle-deck-btn');
+  const toggleGridBtn = document.getElementById('toggle-grid-btn');
+  const deckSection = document.getElementById('deck-view-section');
+  const gridSection = document.getElementById('grid-view-section');
+
+  if (toggleDeckBtn && toggleGridBtn && deckSection && gridSection) {
+    toggleDeckBtn.addEventListener('click', () => {
+      toggleDeckBtn.classList.add('is-active');
+      toggleGridBtn.classList.remove('is-active');
+      deckSection.classList.remove('is-hidden-view');
+      gridSection.classList.add('is-hidden-view');
+    });
+
+    toggleGridBtn.addEventListener('click', () => {
+      toggleGridBtn.classList.add('is-active');
+      toggleDeckBtn.classList.remove('is-active');
+      deckSection.classList.add('is-hidden-view');
+      gridSection.classList.remove('is-hidden-view');
+    });
+  }
 });
+

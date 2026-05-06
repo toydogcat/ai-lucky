@@ -2,7 +2,18 @@
 layout: default
 ---
 
-<div class="diary-deck-wrapper">
+<!-- Mode Toggle Bar -->
+<div class="view-toggle-container">
+  <button id="toggle-deck-btn" class="cozy-toggle-btn is-active">
+    <i class="fa-solid fa-book-open"></i> 翻頁讀日記
+  </button>
+  <button id="toggle-grid-btn" class="cozy-toggle-btn">
+    <i class="fa-solid fa-table-list"></i> 日記目錄 🐾
+  </button>
+</div>
+
+<!-- Mode 1: Sliding Card Deck -->
+<div id="deck-view-section" class="diary-deck-wrapper">
   <!-- The Book Card Deck -->
   <div class="diary-deck">
     {% for post in site.posts %}
@@ -84,3 +95,34 @@ layout: default
   </div>
   {% endif %}
 </div>
+
+<!-- Mode 2: Polaroid Cards Grid Catalog -->
+<div id="grid-view-section" class="grid-view-container is-hidden-view">
+  {% for post in site.posts %}
+  <div class="grid-card">
+    <div>
+      <div class="grid-card-meta">
+        <span class="meta-item"><i class="fa-regular fa-calendar-days"></i> {{ post.date | date: "%Y/%m/%d" }}</span>
+        {% if post.mood or post.weather %}
+        <span class="meta-item">
+          {% if post.mood %}{{ post.mood }}{% endif %}
+          {% if post.mood and post.weather %}•{% endif %}
+          {% if post.weather %}{{ post.weather }}{% endif %}
+        </span>
+        {% endif %}
+      </div>
+      <h3 class="grid-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <p class="grid-card-excerpt">
+        {{ post.content | strip_html | truncate: 65 }}
+      </p>
+    </div>
+    <div class="grid-card-footer">
+      <span>閱讀日記 🐾</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+

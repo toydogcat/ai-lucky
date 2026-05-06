@@ -526,3 +526,155 @@ a:hover {
     max-width: 170px;
   }
 }
+
+/* ==========================================
+   10. Cute Image Polaroid/Sticker Styling
+   ========================================== */
+.card-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 3px solid var(--border-color);
+  box-shadow: 2px 4px 10px rgba(78, 52, 46, 0.12);
+  margin: 1.5rem auto;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-content img:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+/* ==========================================
+   11. View Toggle Buttons
+   ========================================== */
+.view-toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.cozy-toggle-btn {
+  background-color: transparent;
+  border: 3px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-cute);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+.cozy-toggle-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(78, 52, 46, 0.05);
+}
+.cozy-toggle-btn.is-active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--border-color);
+  box-shadow: 0 4px 0px var(--border-color);
+  transform: translateY(-2px);
+}
+.cozy-toggle-btn.is-active:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0px var(--border-color);
+}
+
+/* ==========================================
+   12. Grid View Layout (All Posts Polaroid Wall)
+   ========================================== */
+.grid-view-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.grid-card {
+  background-color: var(--card-bg);
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 0px var(--shadow-color);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.grid-card:hover {
+  transform: translateY(-6px) rotate(1.5deg);
+  box-shadow: 0 12px 0px var(--shadow-color);
+}
+.grid-card:nth-child(even):hover {
+  transform: translateY(-6px) rotate(-1.5deg);
+}
+
+.grid-card-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.grid-card-meta .meta-item {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  width: fit-content;
+}
+
+.grid-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+.grid-card-title a {
+  color: var(--text-main);
+}
+.grid-card-title a:hover {
+  color: var(--primary);
+}
+
+.grid-card-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.grid-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed #E0D4C5;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.grid-card-footer i {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+.grid-card:hover .grid-card-footer i {
+  transform: translateX(4px);
+}
+
+.is-hidden-view {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
