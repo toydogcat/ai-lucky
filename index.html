@@ -49,23 +49,13 @@ layout: default
           <p class="lucky-game-prompt"><i class="fa-solid fa-wand-magic-sparkles"></i> 請點選一隻今日守護萌寵，翻開你的專屬好運：</p>
           
           <div class="lucky-cards-container">
-            <!-- Option 1: Orange Cat -->
+            <!-- Option 1: Dynamic Animal -->
             {% if post.option1 %}
             <div class="flip-card" data-option="1">
               <div class="flip-card-inner">
                 <div class="flip-card-front card-orange">
                   <div class="mascot-avatar">
-                    <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
-                      <circle cx="35" cy="45" r="16" fill="#FFB74D" />
-                      <polygon points="20,35 25,18 33,30" fill="#FFA726" />
-                      <polygon points="38,30 46,18 45,33" fill="#FFA726" />
-                      <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
-                      <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
-                      <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
-                      <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
-                      <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
-                    </svg>
+                    {% include animal_avatar.html name=post.option1.name avatar=post.option1.avatar %}
                   </div>
                   <div class="mascot-name">{{ post.option1.name }}</div>
                 </div>
@@ -81,25 +71,13 @@ layout: default
             </div>
             {% endif %}
 
-            <!-- Option 2: White Bunny -->
+            <!-- Option 2: Dynamic Animal -->
             {% if post.option2 %}
             <div class="flip-card" data-option="2">
               <div class="flip-card-inner">
                 <div class="flip-card-front card-bunny">
                   <div class="mascot-avatar">
-                    <svg class="cozy-bunny-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="68" rx="31" ry="21" fill="#ECEFF1" />
-                      <circle cx="50" cy="45" r="17" fill="#FFFFFF" />
-                      <ellipse cx="43" cy="22" rx="6" ry="15" fill="#FFFFFF" />
-                      <ellipse cx="43" cy="24" rx="3" ry="11" fill="#FFCDD2" />
-                      <ellipse cx="57" cy="22" rx="6" ry="15" fill="#FFFFFF" />
-                      <ellipse cx="57" cy="24" rx="3" ry="11" fill="#FFCDD2" />
-                      <circle cx="43" cy="44" r="2" fill="#5D4037" />
-                      <circle cx="57" cy="44" r="2" fill="#5D4037" />
-                      <polygon points="48,48 52,48 50,51" fill="#FF8A80" />
-                      <circle cx="38" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
-                      <circle cx="62" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
-                    </svg>
+                    {% include animal_avatar.html name=post.option2.name avatar=post.option2.avatar %}
                   </div>
                   <div class="mascot-name">{{ post.option2.name }}</div>
                 </div>
@@ -115,25 +93,13 @@ layout: default
             </div>
             {% endif %}
 
-            <!-- Option 3: Black Cat -->
+            <!-- Option 3: Dynamic Animal -->
             {% if post.option3 %}
             <div class="flip-card" data-option="3">
               <div class="flip-card-inner">
                 <div class="flip-card-front card-black">
                   <div class="mascot-avatar">
-                    <svg class="cozy-black-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
-                      <circle cx="35" cy="45" r="16" fill="#455A64" />
-                      <polygon points="20,35 25,18 33,30" fill="#37474F" />
-                      <polygon points="38,30 46,18 45,33" fill="#37474F" />
-                      <circle cx="27" cy="44" r="3" fill="#FFEE58" />
-                      <circle cx="27" cy="44" r="1" fill="#37474F" />
-                      <circle cx="41" cy="44" r="3" fill="#FFEE58" />
-                      <circle cx="41" cy="44" r="1" fill="#37474F" />
-                      <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
-                      <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
-                      <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
-                    </svg>
+                    {% include animal_avatar.html name=post.option3.name avatar=post.option3.avatar %}
                   </div>
                   <div class="mascot-name">{{ post.option3.name }}</div>
                 </div>

@@ -1,0 +1,114 @@
+{% assign name = include.name | default: "" %}
+{% assign avatar = include.avatar | default: "" %}
+
+{% if avatar == "orange_cat" or name contains "橘貓" %}
+  <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
+    <circle cx="35" cy="45" r="16" fill="#FFB74D" />
+    <polygon points="20,35 25,18 33,30" fill="#FFA726" />
+    <polygon points="38,30 46,18 45,33" fill="#FFA726" />
+    <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
+    <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "bunny" or name contains "兔" or name contains "白兔" %}
+  <svg class="cozy-bunny-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="68" rx="31" ry="21" fill="#ECEFF1" />
+    <circle cx="50" cy="45" r="17" fill="#FFFFFF" />
+    <ellipse cx="43" cy="22" rx="6" ry="15" fill="#FFFFFF" />
+    <ellipse cx="43" cy="24" rx="3" ry="11" fill="#FFCDD2" />
+    <ellipse cx="57" cy="22" rx="6" ry="15" fill="#FFFFFF" />
+    <ellipse cx="57" cy="24" rx="3" ry="11" fill="#FFCDD2" />
+    <circle cx="43" cy="44" r="2" fill="#5D4037" />
+    <circle cx="57" cy="44" r="2" fill="#5D4037" />
+    <polygon points="48,48 52,48 50,51" fill="#FF8A80" />
+    <circle cx="38" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
+    <circle cx="62" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
+  </svg>
+{% elsif avatar == "black_cat" or name contains "黑貓" %}
+  <svg class="cozy-black-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
+    <circle cx="35" cy="45" r="16" fill="#455A64" />
+    <polygon points="20,35 25,18 33,30" fill="#37474F" />
+    <polygon points="38,30 46,18 45,33" fill="#37474F" />
+    <circle cx="27" cy="44" r="3" fill="#FFEE58" />
+    <circle cx="27" cy="44" r="1" fill="#37474F" />
+    <circle cx="41" cy="44" r="3" fill="#FFEE58" />
+    <circle cx="41" cy="44" r="1" fill="#37474F" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
+  </svg>
+{% elsif avatar == "shiba" or name contains "柴犬" or name contains "狗" %}
+  <svg class="cozy-shiba-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#E67E22" />
+    <circle cx="35" cy="45" r="16" fill="#F39C12" />
+    <ellipse cx="35" cy="50" rx="10" ry="7" fill="#FFFFFF" />
+    <polygon points="20,35 23,15 31,30" fill="#E67E22" />
+    <polygon points="22,32 24,18 29,28" fill="#FFCDD2" />
+    <polygon points="33,46 37,46 35,48" fill="#2C3E50" />
+    <circle cx="28" cy="42" r="2.5" fill="#2C3E50" />
+    <circle cx="42" cy="42" r="2.5" fill="#2C3E50" />
+    <circle cx="28" cy="36" r="2" fill="#FFFFFF" />
+    <circle cx="42" cy="36" r="2" fill="#FFFFFF" />
+    <circle cx="22" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="48" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "bear" or name contains "熊" or name contains "小熊" %}
+  <svg class="cozy-bear-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#8D6E63" />
+    <circle cx="50" cy="45" r="17" fill="#A1887F" />
+    <circle cx="36" cy="32" r="6" fill="#8D6E63" />
+    <circle cx="36" cy="32" r="3.5" fill="#FFCDD2" />
+    <circle cx="64" cy="32" r="6" fill="#8D6E63" />
+    <circle cx="64" cy="32" r="3.5" fill="#FFCDD2" />
+    <ellipse cx="50" cy="49" rx="7" ry="5" fill="#EFEBE9" />
+    <circle cx="43" cy="42" r="2" fill="#3E2723" />
+    <circle cx="57" cy="42" r="2" fill="#3E2723" />
+    <ellipse cx="50" cy="47" rx="2" ry="1.5" fill="#3E2723" />
+    <circle cx="38" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="62" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "penguin" or name contains "企鵝" %}
+  <svg class="cozy-penguin-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
+    <ellipse cx="50" cy="67" rx="22" ry="16" fill="#FFFFFF" />
+    <circle cx="50" cy="43" r="17" fill="#37474F" />
+    <circle cx="44" cy="45" r="8" fill="#FFFFFF" />
+    <circle cx="56" cy="45" r="8" fill="#FFFFFF" />
+    <ellipse cx="50" cy="48" rx="10" ry="7" fill="#FFFFFF" />
+    <circle cx="44" cy="44" r="2" fill="#212121" />
+    <circle cx="56" cy="44" r="2" fill="#212121" />
+    <polygon points="47,47 53,47 50,52" fill="#FFB300" />
+    <circle cx="38" cy="47" r="2" fill="#FF8A80" opacity="0.8" />
+    <circle cx="62" cy="47" r="2" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "pig" or name contains "豬" or name contains "小豬" %}
+  <svg class="cozy-pig-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#F06292" />
+    <circle cx="50" cy="45" r="17" fill="#F8BBD0" />
+    <polygon points="34,33 26,20 40,26" fill="#F06292" />
+    <polygon points="66,33 74,20 60,26" fill="#F06292" />
+    <ellipse cx="50" cy="49" rx="6" ry="4" fill="#F48FB1" />
+    <circle cx="48" cy="49" r="1" fill="#AD1457" />
+    <circle cx="52" cy="49" r="1" fill="#AD1457" />
+    <circle cx="42" cy="43" r="2" fill="#5D4037" />
+    <circle cx="58" cy="43" r="2" fill="#5D4037" />
+    <circle cx="37" cy="46" r="2.5" fill="#FF5252" opacity="0.6" />
+    <circle cx="63" cy="46" r="2.5" fill="#FF5252" opacity="0.6" />
+  </svg>
+{% else %}
+  <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
+    <circle cx="35" cy="45" r="16" fill="#FFB74D" />
+    <polygon points="20,35 25,18 33,30" fill="#FFA726" />
+    <polygon points="38,30 46,18 45,33" fill="#FFA726" />
+    <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
+    <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% endif %}
