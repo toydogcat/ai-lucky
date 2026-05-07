@@ -2,7 +2,7 @@
 title: "幸運日記 ✨"
 description: "暖心可愛的手寫風格日記，紀錄生活中的小確幸 🐾"
 baseurl: "/ai-lucky" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+timezone: Asia/Taipei
 
 # Build settings
 markdown: kramdown
