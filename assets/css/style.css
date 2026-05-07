@@ -737,16 +737,14 @@ a:hover {
 }
 
 .flip-card {
-  width: 200px;
-  height: 275px;
+  width: 185px;
+  height: 255px;
   cursor: pointer;
   perspective: 1000px;
   border-radius: 18px;
   transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
 }
-
-/* Kicking out other cards */
 .flip-card.is-dismissed {
   position: absolute !important; /* Take out of flex flow to prevent row wrapping and ghost rows! */
   opacity: 0 !important;
@@ -762,8 +760,24 @@ a:hover {
 /* Expanding selected card to be big and majestic! */
 .flip-card.is-expanded {
   width: 100% !important;
-  max-width: 580px !important;
-  height: 440px !important; /* Taller card to fully contain all 3 paragraphs of text */
+  max-width: 640px !important; /* wider and more luxurious for desktop */
+  height: auto !important; /* Allow natural height expansion based on text length */
+  min-height: 400px !important;
+}
+
+.flip-card.is-expanded .flip-card-inner {
+  height: auto !important;
+}
+
+.flip-card.is-expanded .flip-card-front {
+  position: absolute !important;
+}
+
+.flip-card.is-expanded .flip-card-back {
+  position: relative !important;
+  transform: rotateY(180deg) !important; /* Keeps 3D flip animation working perfectly while allowing natural height flow */
+  width: 100% !important;
+  height: auto !important;
 }
 
 .flip-card-inner {
