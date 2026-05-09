@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cozy-lucky-cache-v1.1';
+const CACHE_NAME = 'cozy-lucky-cache-v1.2';
 const ASSETS_TO_CACHE = [
   '/ai-lucky/',
   '/ai-lucky/index.html',
@@ -20,6 +20,7 @@ self.addEventListener('install', (e) => {
       });
     })
   );
+  self.skipWaiting(); // Force active immediately
 });
 
 // Activate Service Worker and clear stale caches
@@ -33,24 +34,52 @@ self.addEventListener('activate', (e) => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
-// Cache-First with Network-Fallback strategy
+// Hybrid strategy: Network-First for HTML/navigation, Cache-First for static assets
 self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(e.request).then((response) => {
-        // Return response from network
-        return response;
-      }).catch(() => {
-        // Offline fallback if network is unreachable
-        return caches.match('/ai-lucky/');
-      });
-    })
-  );
+  const url = new URL(e.request.url);
+  
+  // 1. Navigation requests or HTML pages: Network-First with Cache Fallback
+  if (e.request.mode === 'navigate' || url.pathname.endsWith('/') || url.pathname.endsWith('.html')) {
+    e.respondWith(
+      fetch(e.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(e.request, responseClone);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          return caches.match(e.request).then((cachedResponse) => {
+            if (cachedResponse) return cachedResponse;
+            return caches.match('/ai-lucky/');
+          });
+        })
+    );
+  } else {
+    // 2. Static assets (CSS, JS, Images, Fonts): Cache-First with Network Fallback
+    e.respondWith(
+      caches.match(e.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(e.request).then((response) => {
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(e.request, responseClone);
+            });
+          }
+          return response;
+        });
+      })
+    );
+  }
 });
+
