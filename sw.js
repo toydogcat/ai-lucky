@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cozy-lucky-cache-v1.2';
+const CACHE_NAME = 'cozy-lucky-cache-v1.3';
 const ASSETS_TO_CACHE = [
   '/ai-lucky/',
   '/ai-lucky/index.html',
