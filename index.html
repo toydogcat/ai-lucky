@@ -53,7 +53,15 @@ layout: default
             {% if post.option1 %}
             <div class="flip-card" data-option="1">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-orange">
+                {% assign card_class = "card-orange" %}
+                {% if post.option1.avatar contains "bunny" or post.option1.avatar contains "rabbit" or post.option1.avatar == "pig" %}{% assign card_class = "card-bunny" %}
+                {% elsif post.option1.avatar contains "black" or post.option1.avatar == "raccoon" or post.option1.avatar == "penguin" or post.option1.avatar == "panda" %}{% assign card_class = "card-black" %}
+                {% elsif post.option1.avatar contains "blue" or post.option1.avatar == "dolphin" or post.option1.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif post.option1.avatar == "shiba" or post.option1.avatar == "dog" or post.option1.avatar == "giraffe" or post.option1.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif post.option1.avatar == "bear" or post.option1.avatar == "deer" or post.option1.avatar == "capybara" or post.option1.avatar == "horse" or post.option1.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif post.option1.avatar == "unicorn" or post.option1.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
                     {% include animal_avatar.html name=post.option1.name avatar=post.option1.avatar %}
                   </div>
@@ -75,7 +83,15 @@ layout: default
             {% if post.option2 %}
             <div class="flip-card" data-option="2">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-bunny">
+                {% assign card_class = "card-bunny" %}
+                {% if post.option2.avatar == "orange_cat" or post.option2.avatar == "lion" or post.option2.avatar == "squirrel" %}{% assign card_class = "card-orange" %}
+                {% elsif post.option2.avatar contains "black" or post.option2.avatar == "raccoon" or post.option2.avatar == "penguin" or post.option2.avatar == "panda" %}{% assign card_class = "card-black" %}
+                {% elsif post.option2.avatar contains "blue" or post.option2.avatar == "dolphin" or post.option2.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif post.option2.avatar == "shiba" or post.option2.avatar == "dog" or post.option2.avatar == "giraffe" or post.option2.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif post.option2.avatar == "bear" or post.option2.avatar == "deer" or post.option2.avatar == "capybara" or post.option2.avatar == "horse" or post.option2.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif post.option2.avatar == "unicorn" or post.option2.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
                     {% include animal_avatar.html name=post.option2.name avatar=post.option2.avatar %}
                   </div>
@@ -97,7 +113,15 @@ layout: default
             {% if post.option3 %}
             <div class="flip-card" data-option="3">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-black">
+                {% assign card_class = "card-black" %}
+                {% if post.option3.avatar == "orange_cat" or post.option3.avatar == "lion" or post.option3.avatar == "squirrel" %}{% assign card_class = "card-orange" %}
+                {% elsif post.option3.avatar contains "bunny" or post.option3.avatar contains "rabbit" or post.option3.avatar == "pig" %}{% assign card_class = "card-bunny" %}
+                {% elsif post.option3.avatar contains "blue" or post.option3.avatar == "dolphin" or post.option3.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif post.option3.avatar == "shiba" or post.option3.avatar == "dog" or post.option3.avatar == "giraffe" or post.option3.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif post.option3.avatar == "bear" or post.option3.avatar == "deer" or post.option3.avatar == "capybara" or post.option3.avatar == "horse" or post.option3.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif post.option3.avatar == "unicorn" or post.option3.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
                     {% include animal_avatar.html name=post.option3.name avatar=post.option3.avatar %}
                   </div>

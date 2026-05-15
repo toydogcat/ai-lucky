@@ -847,6 +847,12 @@ a:hover {
 .card-orange { background: radial-gradient(circle, #FFFDF6 0%, #FFF3E0 100%); border-color: #FFA726; }
 .card-bunny  { background: radial-gradient(circle, #FFFDF6 0%, #FCE4EC 100%); border-color: #EC407A; }
 .card-black  { background: radial-gradient(circle, #FFFDF6 0%, #ECEFF1 100%); border-color: #37474F; }
+.card-blue   { background: radial-gradient(circle, #FFFDF6 0%, #E3F2FD 100%); border-color: #42A5F5; }
+.card-green  { background: radial-gradient(circle, #FFFDF6 0%, #E8F5E9 100%); border-color: #66BB6A; }
+.card-yellow { background: radial-gradient(circle, #FFFDF6 0%, #FFFDE7 100%); border-color: #FBC02D; }
+.card-purple { background: radial-gradient(circle, #FFFDF6 0%, #F3E5F5 100%); border-color: #AB47BC; }
+.card-brown  { background: radial-gradient(circle, #FFFDF6 0%, #EFEBE9 100%); border-color: #8D6E63; }
+.card-teal   { background: radial-gradient(circle, #FFFDF6 0%, #E0F2F1 100%); border-color: #26A69A; }
 
 .mascot-avatar {
   width: 95px;

@@ -1,7 +1,7 @@
 {% assign name = include.name | default: "" %}
 {% assign avatar = include.avatar | default: "" %}
 
-{% if avatar == "orange_cat" or name contains "橘貓" %}
+{% if avatar == "orange_cat" or avatar == "cat" or name contains "橘貓" or name contains "貓貓" %}
   <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
     <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
     <circle cx="35" cy="45" r="16" fill="#FFB74D" />
@@ -9,6 +9,32 @@
     <polygon points="38,30 46,18 45,33" fill="#FFA726" />
     <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
     <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "black_cat" or name contains "黑貓" %}
+  <svg class="cozy-black-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
+    <circle cx="35" cy="45" r="16" fill="#455A64" />
+    <polygon points="20,35 25,18 33,30" fill="#37474F" />
+    <polygon points="38,30 46,18 45,33" fill="#37474F" />
+    <circle cx="27" cy="44" r="3" fill="#FFEE58" />
+    <circle cx="27" cy="44" r="1" fill="#37474F" />
+    <circle cx="41" cy="44" r="3" fill="#FFEE58" />
+    <circle cx="41" cy="44" r="1" fill="#37474F" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
+  </svg>
+{% elsif avatar == "blue_cat" or name contains "藍貓" %}
+  <svg class="cozy-blue-cat-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#42A5F5" />
+    <circle cx="35" cy="45" r="16" fill="#90CAF9" />
+    <polygon points="20,35 25,18 33,30" fill="#42A5F5" />
+    <polygon points="38,30 46,18 45,33" fill="#42A5F5" />
+    <circle cx="27" cy="44" r="2.5" fill="#1A237E" />
+    <circle cx="41" cy="44" r="2.5" fill="#1A237E" />
     <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
     <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
     <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
@@ -27,21 +53,21 @@
     <circle cx="38" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
     <circle cx="62" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
   </svg>
-{% elsif avatar == "black_cat" or name contains "黑貓" %}
-  <svg class="cozy-black-avatar" viewBox="0 0 100 100">
-    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
-    <circle cx="35" cy="45" r="16" fill="#455A64" />
-    <polygon points="20,35 25,18 33,30" fill="#37474F" />
-    <polygon points="38,30 46,18 45,33" fill="#37474F" />
-    <circle cx="27" cy="44" r="3" fill="#FFEE58" />
-    <circle cx="27" cy="44" r="1" fill="#37474F" />
-    <circle cx="41" cy="44" r="3" fill="#FFEE58" />
-    <circle cx="41" cy="44" r="1" fill="#37474F" />
-    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
-    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
-    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
+{% elsif avatar == "pink_rabbit" or name contains "粉紅兔" %}
+  <svg class="cozy-pink-rabbit-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="68" rx="31" ry="21" fill="#F8BBD0" />
+    <circle cx="50" cy="45" r="17" fill="#FFEBEE" />
+    <ellipse cx="43" cy="22" rx="6" ry="15" fill="#FFEBEE" />
+    <ellipse cx="43" cy="24" rx="3" ry="11" fill="#F8BBD0" />
+    <ellipse cx="57" cy="22" rx="6" ry="15" fill="#FFEBEE" />
+    <ellipse cx="57" cy="24" rx="3" ry="11" fill="#F8BBD0" />
+    <circle cx="43" cy="44" r="2" fill="#5D4037" />
+    <circle cx="57" cy="44" r="2" fill="#5D4037" />
+    <polygon points="48,48 52,48 50,51" fill="#FF8A80" />
+    <circle cx="38" cy="47" r="3" fill="#FF8A80" opacity="0.8" />
+    <circle cx="62" cy="47" r="3" fill="#FF8A80" opacity="0.8" />
   </svg>
-{% elsif avatar == "shiba" or name contains "柴犬" or name contains "狗" %}
+{% elsif avatar == "shiba" or avatar == "dog" or name contains "柴犬" or name contains "狗" or name contains "金毛" %}
   <svg class="cozy-shiba-avatar" viewBox="0 0 100 100">
     <ellipse cx="50" cy="65" rx="33" ry="23" fill="#E67E22" />
     <circle cx="35" cy="45" r="16" fill="#F39C12" />
@@ -99,7 +125,368 @@
     <circle cx="37" cy="46" r="2.5" fill="#FF5252" opacity="0.6" />
     <circle cx="63" cy="46" r="2.5" fill="#FF5252" opacity="0.6" />
   </svg>
+{% elsif avatar == "swan" or name contains "鵝" or name contains "天鵝" %}
+  <svg class="cozy-swan-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="72" rx="33" ry="18" fill="#ECEFF1" />
+    <!-- Neck & Head curve -->
+    <path d="M40 72 C30 60, 25 45, 38 30 C42 25, 48 25, 48 33" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round" />
+    <circle cx="44" cy="30" r="5.5" fill="#FFFFFF" />
+    <!-- Eyes -->
+    <circle cx="42" cy="29" r="1.5" fill="#37474F" />
+    <!-- Beak -->
+    <polygon points="46,27 56,31 46,33" fill="#FF9800" />
+    <!-- Wing overlay -->
+    <ellipse cx="55" cy="70" rx="20" ry="10" fill="#FFFFFF" />
+  </svg>
+{% elsif avatar == "deer" or name contains "鹿" %}
+  <svg class="cozy-deer-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="68" rx="31" ry="20" fill="#A1887F" />
+    <circle cx="50" cy="45" r="16" fill="#8D6E63" />
+    <!-- Antlers -->
+    <path d="M40 33 L35 15 M37 24 L30 20" stroke="#5D4037" stroke-width="3" fill="none" stroke-linecap="round" />
+    <path d="M60 33 L65 15 M63 24 L70 20" stroke="#5D4037" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Ears -->
+    <polygon points="36,36 26,28 39,32" fill="#8D6E63" />
+    <polygon points="64,36 74,28 61,32" fill="#8D6E63" />
+    <!-- Face detail -->
+    <ellipse cx="50" cy="51" rx="6" ry="4" fill="#EFEBE9" />
+    <circle cx="43" cy="43" r="2" fill="#3E2723" />
+    <circle cx="57" cy="43" r="2" fill="#3E2723" />
+    <ellipse cx="50" cy="49" rx="2" ry="1.2" fill="#3E2723" />
+    <circle cx="38" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="62" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <!-- Spots on body -->
+    <circle cx="40" cy="63" r="2" fill="#FFFFFF" opacity="0.6" />
+    <circle cx="46" cy="68" r="2.5" fill="#FFFFFF" opacity="0.7" />
+    <circle cx="55" cy="60" r="2" fill="#FFFFFF" opacity="0.6" />
+  </svg>
+{% elsif avatar == "lion" or avatar == "golden_lion" or name contains "獅" %}
+  <svg class="cozy-lion-avatar" viewBox="0 0 100 100">
+    <!-- Mane -->
+    <circle cx="50" cy="45" r="26" fill="#FF8F00" />
+    <!-- Body -->
+    <ellipse cx="50" cy="70" rx="32" ry="20" fill="#FFA000" />
+    <!-- Face -->
+    <circle cx="50" cy="47" r="18" fill="#FFCA28" />
+    <!-- Ears -->
+    <circle cx="36" cy="32" r="6" fill="#FF8F00" />
+    <circle cx="64" cy="32" r="6" fill="#FF8F00" />
+    <!-- Inner Face -->
+    <ellipse cx="50" cy="52" rx="7" ry="5" fill="#FFF9C4" />
+    <circle cx="43" cy="45" r="2" fill="#5D4037" />
+    <circle cx="57" cy="45" r="2" fill="#5D4037" />
+    <polygon points="48,49 52,49 50,52" fill="#5D4037" />
+    <circle cx="38" cy="48" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="62" cy="48" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "squirrel" or name contains "松鼠" %}
+  <svg class="cozy-squirrel-avatar" viewBox="0 0 100 100">
+    <!-- Big fluffy tail -->
+    <path d="M62 65 C80 65, 85 40, 75 30 C65 20, 58 40, 62 50" fill="#A1887F" />
+    <ellipse cx="50" cy="65" rx="28" ry="22" fill="#A1887F" />
+    <circle cx="45" cy="43" r="15" fill="#8D6E63" />
+    <!-- Ears -->
+    <polygon points="36,33 33,18 41,29" fill="#8D6E63" />
+    <polygon points="52,33 55,18 47,29" fill="#8D6E63" />
+    <!-- Eye/Cheek -->
+    <circle cx="38" cy="42" r="2" fill="#3E2723" />
+    <circle cx="50" cy="42" r="2" fill="#3E2723" />
+    <ellipse cx="44" cy="48" rx="6" ry="4" fill="#EFEBE9" />
+    <circle cx="44" cy="47" r="1.5" fill="#3E2723" />
+    <circle cx="32" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="54" cy="46" r="2.5" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "sloth" or name contains "樹懶" %}
+  <svg class="cozy-sloth-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="34" ry="22" fill="#8D6E63" />
+    <!-- Face mask -->
+    <ellipse cx="50" cy="47" rx="19" ry="15" fill="#EFEBE9" />
+    <!-- Eye patches -->
+    <ellipse cx="42" cy="47" rx="6" ry="4" fill="#6D4C41" transform="rotate(15 42 47)" />
+    <ellipse cx="58" cy="47" rx="6" ry="4" fill="#6D4C41" transform="rotate(-15 58 47)" />
+    <!-- Eyes -->
+    <circle cx="42" cy="47" r="1.5" fill="#3E2723" />
+    <circle cx="58" cy="47" r="1.5" fill="#3E2723" />
+    <!-- Nose & Mouth -->
+    <ellipse cx="50" cy="51" rx="3" ry="2" fill="#3E2723" />
+    <path d="M46 54 Q50 57 54 54" stroke="#3E2723" stroke-width="1" fill="none" stroke-linecap="round" />
+  </svg>
+{% elsif avatar == "ladybug" or name contains "瓢蟲" %}
+  <svg class="cozy-ladybug-avatar" viewBox="0 0 100 100">
+    <!-- Antennae -->
+    <path d="M42 30 Q40 20 35 18 M58 30 Q60 20 65 18" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round" />
+    <!-- Head -->
+    <circle cx="50" cy="38" r="12" fill="#263238" />
+    <!-- Body -->
+    <circle cx="50" cy="60" r="25" fill="#EF5350" />
+    <line x1="50" y1="38" x2="50" y2="85" stroke="#263238" stroke-width="2.5" />
+    <!-- Spots -->
+    <circle cx="40" cy="52" r="4" fill="#263238" />
+    <circle cx="60" cy="52" r="4" fill="#263238" />
+    <circle cx="38" cy="68" r="4" fill="#263238" />
+    <circle cx="62" cy="68" r="4" fill="#263238" />
+    <circle cx="50" cy="48" r="3.5" fill="#263238" />
+    <!-- Eyes -->
+    <circle cx="46" cy="35" r="1.5" fill="#FFFFFF" />
+    <circle cx="54" cy="35" r="1.5" fill="#FFFFFF" />
+  </svg>
+{% elsif avatar == "leopard" or name contains "豹" %}
+  <svg class="cozy-leopard-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FBC02D" />
+    <circle cx="35" cy="45" r="16" fill="#FDD835" />
+    <polygon points="20,35 25,18 33,30" fill="#FBC02D" />
+    <polygon points="38,30 46,18 45,33" fill="#FBC02D" />
+    <!-- Spots on Face -->
+    <circle cx="25" cy="38" r="1.5" fill="#795548" />
+    <circle cx="45" cy="38" r="1.5" fill="#795548" />
+    <!-- Eyes and Nose -->
+    <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
+    <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
+    <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
+    <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
+    <!-- Spots on Body -->
+    <circle cx="48" cy="60" r="3" fill="#795548" />
+    <circle cx="62" cy="58" r="2.5" fill="#795548" />
+    <circle cx="55" cy="72" r="3" fill="#795548" />
+    <circle cx="68" cy="68" r="2" fill="#795548" />
+  </svg>
+{% elsif avatar == "raccoon" or name contains "浣熊" %}
+  <svg class="cozy-raccoon-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#90A4AE" />
+    <circle cx="50" cy="45" r="16" fill="#B0BEC5" />
+    <!-- Ears -->
+    <polygon points="36,33 33,18 44,29" fill="#90A4AE" />
+    <polygon points="64,33 67,18 56,29" fill="#90A4AE" />
+    <!-- Mask -->
+    <path d="M36 45 Q50 52 64 45 Q68 45 68 47 Q68 50 50 52 Q32 50 32 47 Q32 45 36 45" fill="#37474F" />
+    <circle cx="42" cy="46" r="2" fill="#FFFFFF" />
+    <circle cx="58" cy="46" r="2" fill="#FFFFFF" />
+    <polygon points="48,50 52,50 50,53" fill="#263238" />
+  </svg>
+{% elsif avatar == "horse" or name contains "馬" %}
+  <svg class="cozy-horse-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="70" rx="30" ry="20" fill="#A1887F" />
+    <!-- Mane -->
+    <path d="M56 25 Q60 35 60 50" stroke="#5D4037" stroke-width="6" fill="none" stroke-linecap="round" />
+    <ellipse cx="46" cy="43" rx="14" ry="18" fill="#8D6E63" />
+    <!-- Muzzle -->
+    <ellipse cx="42" cy="52" rx="10" ry="8" fill="#D7CCC8" />
+    <circle cx="39" cy="52" r="1.5" fill="#5D4037" />
+    <circle cx="45" cy="52" r="1.5" fill="#5D4037" />
+    <!-- Ears -->
+    <polygon points="38,28 35,12 44,20" fill="#8D6E63" />
+    <polygon points="52,30 56,14 50,22" fill="#8D6E63" />
+    <!-- Eye -->
+    <circle cx="48" cy="39" r="2" fill="#3E2723" />
+  </svg>
+{% elsif avatar == "hamster" or name contains "倉鼠" %}
+  <svg class="cozy-hamster-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="66" rx="31" ry="22" fill="#FFB74D" />
+    <circle cx="50" cy="45" r="17" fill="#FFCC80" />
+    <!-- Ears -->
+    <circle cx="36" cy="31" r="5" fill="#FFB74D" />
+    <circle cx="64" cy="31" r="5" fill="#FFB74D" />
+    <!-- White belly -->
+    <ellipse cx="50" cy="70" rx="16" ry="12" fill="#FFFFFF" />
+    <!-- Chubby Cheeks -->
+    <ellipse cx="40" cy="50" rx="8" ry="6" fill="#FFFFFF" />
+    <ellipse cx="60" cy="50" rx="8" ry="6" fill="#FFFFFF" />
+    <!-- Eyes -->
+    <circle cx="42" cy="43" r="2.2" fill="#5D4037" />
+    <circle cx="58" cy="43" r="2.2" fill="#5D4037" />
+    <circle cx="42.5" cy="41.5" r="0.8" fill="#FFFFFF" />
+    <circle cx="58.5" cy="41.5" r="0.8" fill="#FFFFFF" />
+    <!-- Nose -->
+    <polygon points="48,47 52,47 50,49" fill="#FF8A80" />
+    <circle cx="35" cy="49" r="3" fill="#FF8A80" opacity="0.7" />
+    <circle cx="65" cy="49" r="3" fill="#FF8A80" opacity="0.7" />
+  </svg>
+{% elsif avatar == "owl" or name contains "貓頭鷹" %}
+  <svg class="cozy-owl-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="32" ry="22" fill="#795548" />
+    <ellipse cx="50" cy="68" rx="16" ry="14" fill="#EFEBE9" /> <!-- belly -->
+    <circle cx="50" cy="43" r="17" fill="#8D6E63" />
+    <!-- Ear tufts -->
+    <polygon points="33,33 30,20 40,30" fill="#8D6E63" />
+    <polygon points="67,33 70,20 60,30" fill="#8D6E63" />
+    <!-- Eyes Rings -->
+    <circle cx="42" cy="41" r="6" fill="#FFFFFF" />
+    <circle cx="58" cy="41" r="6" fill="#FFFFFF" />
+    <circle cx="42" cy="41" r="2.5" fill="#263238" />
+    <circle cx="58" cy="41" r="2.5" fill="#263238" />
+    <!-- Beak -->
+    <polygon points="48,44 52,44 50,50" fill="#FFA000" />
+  </svg>
+{% elsif avatar == "dolphin" or name contains "海豚" %}
+  <svg class="cozy-dolphin-avatar" viewBox="0 0 100 100">
+    <!-- Fin -->
+    <path d="M45 30 Q55 15 60 30 Z" fill="#64B5F6" />
+    <!-- Body -->
+    <path d="M25 65 Q45 40 75 55 C85 60, 90 55, 88 50 Q60 30 25 55 Z" fill="#42A5F5" />
+    <!-- Underbelly -->
+    <path d="M28 63 Q45 45 70 58 C75 60, 77 59, 75 57 Q55 39 28 57 Z" fill="#E3F2FD" />
+    <!-- Tail -->
+    <path d="M80 57 L88 65 L88 52 Z" fill="#42A5F5" />
+    <!-- Eye -->
+    <circle cx="38" cy="50" r="1.5" fill="#1565C0" />
+  </svg>
+{% elsif avatar == "pigeon" or name contains "鴿" %}
+  <svg class="cozy-pigeon-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="68" rx="30" ry="20" fill="#90A4AE" />
+    <!-- Purple iridescent patch -->
+    <circle cx="44" cy="48" r="10" fill="#B39DDB" opacity="0.6" />
+    <circle cx="42" cy="43" r="13" fill="#B0BEC5" />
+    <circle cx="38" cy="40" r="1.5" fill="#37474F" />
+    <!-- Beak -->
+    <polygon points="32,42 24,45 32,46" fill="#FFB300" />
+    <!-- Wing -->
+    <ellipse cx="55" cy="68" rx="18" ry="9" fill="#78909C" />
+  </svg>
+{% elsif avatar == "fox" or name contains "狐" %}
+  <svg class="cozy-fox-avatar" viewBox="0 0 100 100">
+    <!-- Tail -->
+    <path d="M65 65 C82 65, 88 45, 80 35 C78 32, 75 35, 78 42" stroke="#E64A19" stroke-width="10" fill="none" stroke-linecap="round" />
+    <ellipse cx="50" cy="66" rx="32" ry="22" fill="#F4511E" />
+    <!-- Head -->
+    <polygon points="30,33 50,56 70,33" fill="#FF7043" />
+    <circle cx="50" cy="42" r="14" fill="#FF7043" />
+    <!-- White Cheeks -->
+    <polygon points="34,38 50,54 42,54" fill="#FFFFFF" />
+    <polygon points="66,38 50,54 58,54" fill="#FFFFFF" />
+    <!-- Ears -->
+    <polygon points="32,33 24,15 40,25" fill="#F4511E" />
+    <polygon points="68,33 76,15 60,25" fill="#F4511E" />
+    <!-- Nose & Eyes -->
+    <circle cx="50" cy="55" r="2" fill="#212121" />
+    <circle cx="42" cy="42" r="2" fill="#212121" />
+    <circle cx="58" cy="42" r="2" fill="#212121" />
+  </svg>
+{% elsif avatar == "phoenix" or name contains "鳳凰" %}
+  <svg class="cozy-phoenix-avatar" viewBox="0 0 100 100">
+    <!-- Tail Feathers -->
+    <path d="M55 75 Q65 90 80 88 M55 75 Q75 82 85 75" stroke="#FF3D00" stroke-width="3" fill="none" stroke-linecap="round" />
+    <ellipse cx="50" cy="65" rx="28" ry="18" fill="#FF5722" />
+    <circle cx="40" cy="45" r="14" fill="#FF7043" />
+    <!-- Crest -->
+    <path d="M38 31 Q35 18 30 15" stroke="#FFEB3B" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <!-- Wings -->
+    <path d="M45 60 Q20 50 35 72 Z" fill="#FFEB3B" opacity="0.8" />
+    <!-- Eye & Beak -->
+    <circle cx="35" cy="43" r="1.5" fill="#212121" />
+    <polygon points="30,45 20,48 29,51" fill="#FFC107" />
+  </svg>
+{% elsif avatar == "koala" or name contains "無尾熊" %}
+  <svg class="cozy-koala-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="32" ry="22" fill="#90A4AE" />
+    <circle cx="50" cy="44" r="16" fill="#B0BEC5" />
+    <!-- Big ears -->
+    <circle cx="32" cy="34" r="9" fill="#90A4AE" />
+    <circle cx="32" cy="34" r="6.5" fill="#ECEFF1" />
+    <circle cx="68" cy="34" r="9" fill="#90A4AE" />
+    <circle cx="68" cy="34" r="6.5" fill="#ECEFF1" />
+    <!-- Face details -->
+    <circle cx="43" cy="42" r="1.8" fill="#37474F" />
+    <circle cx="57" cy="42" r="1.8" fill="#37474F" />
+    <!-- Big black nose -->
+    <ellipse cx="50" cy="48" rx="3.5" ry="6" fill="#263238" />
+    <circle cx="38" cy="47" r="2.5" fill="#FF8A80" opacity="0.7" />
+    <circle cx="62" cy="47" r="2.5" fill="#FF8A80" opacity="0.7" />
+  </svg>
+{% elsif avatar == "giraffe" or name contains "長頸鹿" %}
+  <svg class="cozy-giraffe-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="72" rx="31" ry="18" fill="#FFCA28" />
+    <!-- Neck -->
+    <path d="M42 72 L42 35" stroke="#FFCA28" stroke-width="12" stroke-linecap="round" />
+    <circle cx="42" cy="32" r="11" fill="#FFD54F" />
+    <!-- Horns -->
+    <line x1="38" y1="22" x2="36" y2="12" stroke="#A1887F" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="46" y1="22" x2="48" y2="12" stroke="#A1887F" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="36" cy="12" r="2" fill="#A1887F" />
+    <circle cx="48" cy="12" r="2" fill="#A1887F" />
+    <!-- Spots on Neck & Body -->
+    <circle cx="42" cy="55" r="2.5" fill="#A1887F" />
+    <circle cx="42" cy="45" r="2" fill="#A1887F" />
+    <circle cx="55" cy="70" r="3.5" fill="#A1887F" />
+    <circle cx="65" cy="74" r="2" fill="#A1887F" />
+    <!-- Face -->
+    <circle cx="38" cy="32" r="1.5" fill="#3E2723" />
+    <circle cx="46" cy="32" r="1.5" fill="#3E2723" />
+    <ellipse cx="42" cy="38" rx="6" ry="4" fill="#FFE082" />
+  </svg>
+{% elsif avatar == "bee" or name contains "蜜蜂" %}
+  <svg class="cozy-bee-avatar" viewBox="0 0 100 100">
+    <!-- Antennae -->
+    <path d="M42 42 Q38 35 34 35 M58 42 Q62 35 66 35" stroke="#37474F" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <!-- Wings -->
+    <ellipse cx="44" cy="45" rx="12" ry="8" fill="#E0F7FA" opacity="0.8" transform="rotate(-20 44 45)" />
+    <ellipse cx="56" cy="45" rx="12" ry="8" fill="#E0F7FA" opacity="0.8" transform="rotate(20 56 45)" />
+    <!-- Body -->
+    <ellipse cx="50" cy="65" rx="25" ry="19" fill="#FFD54F" />
+    <!-- Stripes -->
+    <path d="M43 47 Q46 65 43 83" stroke="#37474F" stroke-width="4" fill="none" stroke-linecap="round" />
+    <path d="M53 46 Q56 65 53 84" stroke="#37474F" stroke-width="4" fill="none" stroke-linecap="round" />
+    <!-- Face details -->
+    <circle cx="36" cy="61" r="2" fill="#37474F" />
+    <circle cx="50" cy="61" r="2" fill="#37474F" />
+    <circle cx="32" cy="65" r="2" fill="#FF8A80" opacity="0.8" />
+  </svg>
+{% elsif avatar == "capybara" or name contains "水豚" %}
+  <svg class="cozy-capybara-avatar" viewBox="0 0 100 100">
+    <!-- Chill mood capybara -->
+    <ellipse cx="50" cy="66" rx="34" ry="22" fill="#8D6E63" />
+    <!-- Head (blocky but rounded) -->
+    <rect x="32" y="26" width="26" height="24" rx="8" fill="#A1887F" />
+    <circle cx="55" cy="30" r="3.5" fill="#8D6E63" /> <!-- Ear -->
+    <!-- Sleeping eyes -->
+    <path d="M38 36 Q42 38 46 36" stroke="#3E2723" stroke-width="2" fill="none" />
+    <!-- Nose / snout -->
+    <ellipse cx="34" cy="44" rx="3" ry="2" fill="#3E2723" />
+    <!-- Mandarin orange on top of head (cute accessory!) -->
+    <circle cx="42" cy="21" r="5" fill="#FFA726" />
+    <line x1="42" y1="16" x2="42" y2="14" stroke="#4CAF50" stroke-width="1.5" />
+  </svg>
+{% elsif avatar == "panda" or name contains "熊貓" %}
+  <svg class="cozy-panda-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="0.5" />
+    <!-- Body black areas (shoulders) -->
+    <ellipse cx="30" cy="65" rx="15" ry="20" fill="#212121" />
+    <ellipse cx="70" cy="65" rx="15" ry="20" fill="#212121" />
+    <!-- Center white chest -->
+    <ellipse cx="50" cy="67" rx="18" ry="21" fill="#FFFFFF" />
+    <!-- Head -->
+    <circle cx="50" cy="44" r="17" fill="#FFFFFF" stroke="#ECEFF1" stroke-width="1" />
+    <!-- Black Ears -->
+    <circle cx="36" cy="31" r="6" fill="#212121" />
+    <circle cx="64" cy="31" r="6" fill="#212121" />
+    <!-- Eye Patches -->
+    <ellipse cx="43" cy="45" rx="5" ry="7" fill="#212121" transform="rotate(-15 43 45)" />
+    <ellipse cx="57" cy="45" rx="5" ry="7" fill="#212121" transform="rotate(15 57 45)" />
+    <!-- Eyes -->
+    <circle cx="43" cy="44" r="1.5" fill="#FFFFFF" />
+    <circle cx="57" cy="44" r="1.5" fill="#FFFFFF" />
+    <!-- Nose -->
+    <ellipse cx="50" cy="49" rx="2.5" ry="1.5" fill="#212121" />
+    <circle cx="38" cy="49" r="2.5" fill="#FF8A80" opacity="0.7" />
+    <circle cx="62" cy="49" r="2.5" fill="#FF8A80" opacity="0.7" />
+  </svg>
+{% elsif avatar == "unicorn" or name contains "獨角獸" %}
+  <svg class="cozy-unicorn-avatar" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="70" rx="30" ry="20" fill="#ECEFF1" />
+    <!-- Rainbow Mane -->
+    <path d="M58 28 Q62 38 60 52" stroke="#F48FB1" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M62 32 Q66 40 64 50" stroke="#90CAF9" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Face -->
+    <ellipse cx="46" cy="43" rx="14" ry="18" fill="#FFFFFF" />
+    <!-- Golden Horn -->
+    <polygon points="44,26 48,24 42,5" fill="#FFD54F" />
+    <!-- Muzzle -->
+    <ellipse cx="42" cy="52" rx="9" ry="7" fill="#FCE4EC" />
+    <!-- Eye -->
+    <path d="M46 38 Q49 41 52 38" stroke="#8E24AA" stroke-width="1.5" fill="none" stroke-linecap="round" />
+  </svg>
 {% else %}
+  <!-- Fallback generic cozy cat avatar -->
   <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
     <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
     <circle cx="35" cy="45" r="16" fill="#FFB74D" />

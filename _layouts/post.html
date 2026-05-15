@@ -40,23 +40,21 @@ layout: default
         <p class="lucky-game-prompt"><i class="fa-solid fa-wand-magic-sparkles"></i> 請點選一隻今日守護萌寵，翻開你的專屬好運：</p>
         
         <div class="lucky-cards-container">
-          <!-- Option 1: Orange Cat -->
+          <!-- Option 1 -->
           {% if page.option1 %}
           <div class="flip-card" data-option="1">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-orange">
+                {% assign card_class = "card-orange" %}
+                {% if page.option1.avatar contains "bunny" or page.option1.avatar contains "rabbit" or page.option1.avatar == "pig" %}{% assign card_class = "card-bunny" %}
+                {% elsif page.option1.avatar contains "black" or page.option1.avatar == "raccoon" or page.option1.avatar == "penguin" or page.option1.avatar == "panda" %}{% assign card_class = "card-black" %}
+                {% elsif page.option1.avatar contains "blue" or page.option1.avatar == "dolphin" or page.option1.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif page.option1.avatar == "shiba" or page.option1.avatar == "dog" or page.option1.avatar == "giraffe" or page.option1.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif page.option1.avatar == "bear" or page.option1.avatar == "deer" or page.option1.avatar == "capybara" or page.option1.avatar == "horse" or page.option1.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif page.option1.avatar == "unicorn" or page.option1.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
-                    <svg class="cozy-cat-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="65" rx="33" ry="23" fill="#FFA726" />
-                      <circle cx="35" cy="45" r="16" fill="#FFB74D" />
-                      <polygon points="20,35 25,18 33,30" fill="#FFA726" />
-                      <polygon points="38,30 46,18 45,33" fill="#FFA726" />
-                      <circle cx="27" cy="44" r="2.5" fill="#5D4037" />
-                      <circle cx="41" cy="44" r="2.5" fill="#5D4037" />
-                      <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
-                      <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
-                      <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.8" />
-                    </svg>
+                    {% include animal_avatar.html name=page.option1.name avatar=page.option1.avatar %}
                   </div>
                   <div class="mascot-name">{{ page.option1.name }}</div>
                 </div>
@@ -72,25 +70,21 @@ layout: default
           </div>
           {% endif %}
 
-          <!-- Option 2: White Bunny -->
+          <!-- Option 2 -->
           {% if page.option2 %}
           <div class="flip-card" data-option="2">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-bunny">
+                {% assign card_class = "card-bunny" %}
+                {% if page.option2.avatar == "orange_cat" or page.option2.avatar == "lion" or page.option2.avatar == "squirrel" %}{% assign card_class = "card-orange" %}
+                {% elsif page.option2.avatar contains "black" or page.option2.avatar == "raccoon" or page.option2.avatar == "penguin" or page.option2.avatar == "panda" %}{% assign card_class = "card-black" %}
+                {% elsif page.option2.avatar contains "blue" or page.option2.avatar == "dolphin" or page.option2.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif page.option2.avatar == "shiba" or page.option2.avatar == "dog" or page.option2.avatar == "giraffe" or page.option2.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif page.option2.avatar == "bear" or page.option2.avatar == "deer" or page.option2.avatar == "capybara" or page.option2.avatar == "horse" or page.option2.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif page.option2.avatar == "unicorn" or page.option2.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
-                    <svg class="cozy-bunny-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="68" rx="31" ry="21" fill="#ECEFF1" />
-                      <circle cx="50" cy="45" r="17" fill="#FFFFFF" />
-                      <ellipse cx="43" cy="22" rx="6" ry="15" fill="#FFFFFF" />
-                      <ellipse cx="43" cy="24" rx="3" ry="11" fill="#FFCDD2" />
-                      <ellipse cx="57" cy="22" rx="6" ry="15" fill="#FFFFFF" />
-                      <ellipse cx="57" cy="24" rx="3" ry="11" fill="#FFCDD2" />
-                      <circle cx="43" cy="44" r="2" fill="#5D4037" />
-                      <circle cx="57" cy="44" r="2" fill="#5D4037" />
-                      <polygon points="48,48 52,48 50,51" fill="#FF8A80" />
-                      <circle cx="38" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
-                      <circle cx="62" cy="47" r="3" fill="#FF8A80" opacity="0.7" />
-                    </svg>
+                    {% include animal_avatar.html name=page.option2.name avatar=page.option2.avatar %}
                   </div>
                   <div class="mascot-name">{{ page.option2.name }}</div>
                 </div>
@@ -106,25 +100,21 @@ layout: default
           </div>
           {% endif %}
 
-          <!-- Option 3: Black Cat -->
+          <!-- Option 3 -->
           {% if page.option3 %}
           <div class="flip-card" data-option="3">
               <div class="flip-card-inner">
-                <div class="flip-card-front card-black">
+                {% assign card_class = "card-black" %}
+                {% if page.option3.avatar == "orange_cat" or page.option3.avatar == "lion" or page.option3.avatar == "squirrel" %}{% assign card_class = "card-orange" %}
+                {% elsif page.option3.avatar contains "bunny" or page.option3.avatar contains "rabbit" or page.option3.avatar == "pig" %}{% assign card_class = "card-bunny" %}
+                {% elsif page.option3.avatar contains "blue" or page.option3.avatar == "dolphin" or page.option3.avatar == "swan" %}{% assign card_class = "card-blue" %}
+                {% elsif page.option3.avatar == "shiba" or page.option3.avatar == "dog" or page.option3.avatar == "giraffe" or page.option3.avatar == "leopard" %}{% assign card_class = "card-yellow" %}
+                {% elsif page.option3.avatar == "bear" or page.option3.avatar == "deer" or page.option3.avatar == "capybara" or page.option3.avatar == "horse" or page.option3.avatar == "owl" %}{% assign card_class = "card-brown" %}
+                {% elsif page.option3.avatar == "unicorn" or page.option3.avatar == "phoenix" %}{% assign card_class = "card-purple" %}
+                {% endif %}
+                <div class="flip-card-front {{ card_class }}">
                   <div class="mascot-avatar">
-                    <svg class="cozy-black-avatar" viewBox="0 0 100 100">
-                      <ellipse cx="50" cy="65" rx="33" ry="23" fill="#37474F" />
-                      <circle cx="35" cy="45" r="16" fill="#455A64" />
-                      <polygon points="20,35 25,18 33,30" fill="#37474F" />
-                      <polygon points="38,30 46,18 45,33" fill="#37474F" />
-                      <circle cx="27" cy="44" r="3" fill="#FFEE58" />
-                      <circle cx="27" cy="44" r="1" fill="#37474F" />
-                      <circle cx="41" cy="44" r="3" fill="#FFEE58" />
-                      <circle cx="41" cy="44" r="1" fill="#37474F" />
-                      <polygon points="32,47 36,47 34,49" fill="#FF8A80" />
-                      <circle cx="21" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
-                      <circle cx="45" cy="47" r="2.5" fill="#FF8A80" opacity="0.6" />
-                    </svg>
+                    {% include animal_avatar.html name=page.option3.name avatar=page.option3.avatar %}
                   </div>
                   <div class="mascot-name">{{ page.option3.name }}</div>
                 </div>
