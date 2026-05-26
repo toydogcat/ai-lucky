@@ -54,18 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalCards = cards.length;
 
   if (totalCards > 0) {
-    // Generate navigation dot indicators
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalCards; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('indicator-dot');
-      if (i === 0) dot.classList.add('is-active');
-      dot.addEventListener('click', () => {
-        navigateTo(i);
-      });
-      dotsContainer.appendChild(dot);
-    }
-
     // Show initial card
     updateSlider();
 
@@ -158,15 +146,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update Dots
-    const dots = document.querySelectorAll('.indicator-dot');
-    dots.forEach((dot, idx) => {
-      if (idx === currentIndex) {
-        dot.classList.add('is-active');
-      } else {
-        dot.classList.remove('is-active');
+    // Update Dots (Sliding window of max 5 dots centered around currentIndex)
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      let start = 0;
+      let end = totalCards - 1;
+      
+      if (totalCards > 5) {
+        start = Math.max(0, currentIndex - 2);
+        end = start + 4;
+        if (end >= totalCards) {
+          end = totalCards - 1;
+          start = Math.max(0, end - 4);
+        }
       }
-    });
+      
+      for (let i = start; i <= end; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('indicator-dot');
+        if (i === currentIndex) {
+          dot.classList.add('is-active');
+        }
+        dot.addEventListener('click', () => {
+          navigateTo(i);
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
 
     // Update Buttons
     if (prevBtn) prevBtn.disabled = currentIndex === 0;
