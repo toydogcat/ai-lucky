@@ -5,6 +5,42 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
+  // 0. 日期鎖：隱藏未來的日記（台灣時間 UTC+8）
+  // ==========================================
+  (function hideFuturePosts() {
+    // 取得台灣今天的日期字串，例如 "2026-05-26"
+    const todayStr = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date());
+
+    // 處理 deck view 的卡片
+    document.querySelectorAll('.diary-deck .diary-card[data-date]').forEach(card => {
+      if (card.dataset.date > todayStr) {
+        card.remove();
+      }
+    });
+
+    // 處理 grid view 的卡片
+    document.querySelectorAll('.grid-card[data-date]').forEach(card => {
+      if (card.dataset.date > todayStr) {
+        card.remove();
+      }
+    });
+
+    // 移除後重新確保 deck 第一張卡片是 active 狀態
+    const deckCards = document.querySelectorAll('.diary-deck .diary-card');
+    if (deckCards.length > 0) {
+      deckCards.forEach((c, i) => {
+        if (i === 0) {
+          c.classList.remove('is-hidden');
+          c.classList.add('is-active');
+        } else {
+          c.classList.remove('is-active');
+          c.classList.add('is-hidden');
+        }
+      });
+    }
+  })();
+
+  // ==========================================
   // 1. Interactive Card Slider (One Post at a Time)
   // ==========================================
   const cards = document.querySelectorAll('.diary-deck .diary-card');

@@ -17,7 +17,7 @@ layout: default
   <!-- The Book Card Deck -->
   <div class="diary-deck">
     {% for post in site.posts %}
-    <article class="diary-card {% if forloop.first %}is-active{% else %}is-hidden{% endif %}">
+    <article class="diary-card {% if forloop.first %}is-active{% else %}is-hidden{% endif %}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
       <!-- Tape decorations -->
       <div class="card-decorations">
         <div class="tape tape-left"></div>
@@ -205,7 +205,7 @@ layout: default
 <!-- Mode 2: Polaroid Cards Grid Catalog -->
 <div id="grid-view-section" class="grid-view-container is-hidden-view">
   {% for post in site.posts %}
-  <div class="grid-card">
+  <div class="grid-card" data-date="{{ post.date | date: '%Y-%m-%d' }}">
     <div>
       <div class="grid-card-meta">
         <span class="meta-item"><i class="fa-regular fa-calendar-days"></i> {{ post.date | date: "%Y/%m/%d" }}</span>
